@@ -5,14 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  showRecipe: boolean = true;
-
-  onMenuItemClick(menuItem: string) {
-    if (menuItem === 'recipe') {
-      this.showRecipe = true;
-    } else {
-      this.showRecipe = false;
-    }
-  }
-}
+export class AppComponent {}
