@@ -1,1 +1,72 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="imagePath">Image Path</label>
+        <input
+          id="imagePath"
+          type="text"
+          formControlName="imagePath"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          type="text"
+          formControlName="description"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-group" formArrayName="ingredients">
+        <h3>Ingredients</h3>
+        <button class="btn btn-primary" type="button" (click)="addIngredient()">
+          Add Ingredient
+        </button>
+        <div
+          class="form-group"
+          *ngFor="let ingredient of controls; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="row">
+            <div class="col-md-8">
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                formControlName="name"
+              />
+            </div>
+            <div class="col-md-3">
+              <input
+                id="name"
+                type="number"
+                class="form-control"
+                formControlName="amount"
+              />
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" [disabled]="!recipeForm.valid">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
