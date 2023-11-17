@@ -44,4 +44,17 @@ export class RecipeService {
   getRecipe(id: number): Recipe {
     return this.recipes.slice().find((recipe: Recipe) => recipe.id === id);
   }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(id: number, newRecipe: Recipe) {
+    this.recipes[this.recipes.findIndex((recipe) => recipe.id === id)] =
+      newRecipe;
+  }
+
+  getNextId(): number {
+    return this.recipes.length + 1;
+  }
 }
