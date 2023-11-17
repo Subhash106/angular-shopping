@@ -1,3 +1,7 @@
 .form-control.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+button:not(:last-child) {
+  margin-right: 4px;
+}
